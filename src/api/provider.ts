@@ -47,6 +47,7 @@ export class FetchProvider implements APIProvider {
             body: params !== undefined ? JSON.stringify(params) : undefined,
         })
         if (!response.ok) {
+            console.log((await response.json()).error)
             throw Error('Not ok')
         }
         return response.json()

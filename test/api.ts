@@ -5,6 +5,7 @@ import {MockProvider} from './utils/mock-provider'
 
 import {Action} from '../src/chain/action'
 import {APIClient, APIError} from '../src/api/client'
+import {ABI} from '../src/chain/abi'
 import {Asset} from '../src/chain/asset'
 import {Name} from '../src/chain/name'
 import {PrivateKey} from '../src/chain/private-key'
@@ -174,4 +175,41 @@ suite('api v1', function () {
             ])
         }
     })
+
+    test('failing updateauth', async function() {
+        const loaded = await client.v1.chain.get_abi('eosio')
+        const transaction = Transaction.from({
+            expiration: '1970-01-01T00:00:00',
+            ref_block_num: 0,
+            ref_block_prefix: 0,
+            max_net_usage_words: 0,
+            max_cpu_usage_ms: 0,
+            delay_sec: 0,
+            context_free_actions: [],
+            actions: [{
+                account: "eosio",
+                name: "updateauth",
+                authorization: [{
+                    actor: "whwobwuha2vx",
+                    permission: "owner"
+                }],
+                data: {
+                    account: "whwobwuha2vx",
+                    permission: "active",
+                    parent: "owner",
+                    auth: {
+                        threshold: "1",
+                        keys: [{
+                            key: "FIO577upf5d5rm8TGs4P9SvUqmBJmBLzWxq329s445JrT9vitggNE",
+                            weight: "1"
+                        }],
+                        accounts: [],
+                        waits: []
+                    }
+                }
+            }],
+            transaction_extensions: [],
+        }, ABI.from(JSON.stringify(loaded.abi)))
+    })
+
 })

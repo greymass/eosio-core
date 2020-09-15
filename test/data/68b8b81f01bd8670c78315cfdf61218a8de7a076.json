@@ -1,0 +1,1282 @@
+{
+    "account_name": "eosio",
+    "abi": {
+        "version": "eosio::abi/1.1",
+        "types": [],
+        "structs": [
+            {
+                "name": "abi_hash",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "owner",
+                        "type": "name"
+                    },
+                    {
+                        "name": "hash",
+                        "type": "checksum256"
+                    }
+                ]
+            },
+            {
+                "name": "addaction",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "action",
+                        "type": "name"
+                    },
+                    {
+                        "name": "contract",
+                        "type": "string"
+                    },
+                    {
+                        "name": "actor",
+                        "type": "name"
+                    }
+                ]
+            },
+            {
+                "name": "addlocked",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "owner",
+                        "type": "name"
+                    },
+                    {
+                        "name": "amount",
+                        "type": "int64"
+                    },
+                    {
+                        "name": "locktype",
+                        "type": "int16"
+                    }
+                ]
+            },
+            {
+                "name": "authority",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "threshold",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "keys",
+                        "type": "key_weight[]"
+                    },
+                    {
+                        "name": "accounts",
+                        "type": "permission_level_weight[]"
+                    },
+                    {
+                        "name": "waits",
+                        "type": "wait_weight[]"
+                    }
+                ]
+            },
+            {
+                "name": "block_header",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "timestamp",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "producer",
+                        "type": "name"
+                    },
+                    {
+                        "name": "confirmed",
+                        "type": "uint16"
+                    },
+                    {
+                        "name": "previous",
+                        "type": "checksum256"
+                    },
+                    {
+                        "name": "transaction_mroot",
+                        "type": "checksum256"
+                    },
+                    {
+                        "name": "action_mroot",
+                        "type": "checksum256"
+                    },
+                    {
+                        "name": "schedule_version",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "new_producers",
+                        "type": "producer_schedule?"
+                    }
+                ]
+            },
+            {
+                "name": "blockchain_parameters",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "max_block_net_usage",
+                        "type": "uint64"
+                    },
+                    {
+                        "name": "target_block_net_usage_pct",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "max_transaction_net_usage",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "base_per_transaction_net_usage",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "net_usage_leeway",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "context_free_discount_net_usage_num",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "context_free_discount_net_usage_den",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "max_block_cpu_usage",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "target_block_cpu_usage_pct",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "max_transaction_cpu_usage",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "min_transaction_cpu_usage",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "max_transaction_lifetime",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "deferred_trx_expiration_window",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "max_transaction_delay",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "max_inline_action_size",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "max_inline_action_depth",
+                        "type": "uint16"
+                    },
+                    {
+                        "name": "max_authority_depth",
+                        "type": "uint16"
+                    }
+                ]
+            },
+            {
+                "name": "burnaction",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "fioaddrhash",
+                        "type": "uint128"
+                    }
+                ]
+            },
+            {
+                "name": "canceldelay",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "canceling_auth",
+                        "type": "permission_level"
+                    },
+                    {
+                        "name": "trx_id",
+                        "type": "checksum256"
+                    }
+                ]
+            },
+            {
+                "name": "crautoproxy",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "proxy",
+                        "type": "name"
+                    },
+                    {
+                        "name": "owner",
+                        "type": "name"
+                    }
+                ]
+            },
+            {
+                "name": "deleteauth",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "account",
+                        "type": "name"
+                    },
+                    {
+                        "name": "permission",
+                        "type": "name"
+                    },
+                    {
+                        "name": "max_fee",
+                        "type": "uint64"
+                    }
+                ]
+            },
+            {
+                "name": "eosio_global_state",
+                "base": "blockchain_parameters",
+                "fields": [
+                    {
+                        "name": "last_producer_schedule_update",
+                        "type": "block_timestamp_type"
+                    },
+                    {
+                        "name": "last_pervote_bucket_fill",
+                        "type": "time_point"
+                    },
+                    {
+                        "name": "pervote_bucket",
+                        "type": "int64"
+                    },
+                    {
+                        "name": "perblock_bucket",
+                        "type": "int64"
+                    },
+                    {
+                        "name": "total_unpaid_blocks",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "total_voted_fio",
+                        "type": "int64"
+                    },
+                    {
+                        "name": "thresh_voted_fio_time",
+                        "type": "time_point"
+                    },
+                    {
+                        "name": "last_producer_schedule_size",
+                        "type": "uint16"
+                    },
+                    {
+                        "name": "total_producer_vote_weight",
+                        "type": "float64"
+                    },
+                    {
+                        "name": "last_name_close",
+                        "type": "block_timestamp_type"
+                    },
+                    {
+                        "name": "last_fee_update",
+                        "type": "block_timestamp_type"
+                    }
+                ]
+            },
+            {
+                "name": "eosio_global_state2",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "last_block_num",
+                        "type": "block_timestamp_type"
+                    },
+                    {
+                        "name": "total_producer_votepay_share",
+                        "type": "float64"
+                    },
+                    {
+                        "name": "revision",
+                        "type": "uint8"
+                    }
+                ]
+            },
+            {
+                "name": "eosio_global_state3",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "last_vpay_state_update",
+                        "type": "time_point"
+                    },
+                    {
+                        "name": "total_vpay_share_change_rate",
+                        "type": "float64"
+                    }
+                ]
+            },
+            {
+                "name": "incram",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "accountmn",
+                        "type": "name"
+                    },
+                    {
+                        "name": "amount",
+                        "type": "int64"
+                    }
+                ]
+            },
+            {
+                "name": "inhibitunlck",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "owner",
+                        "type": "name"
+                    },
+                    {
+                        "name": "value",
+                        "type": "uint32"
+                    }
+                ]
+            },
+            {
+                "name": "init",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "version",
+                        "type": "varuint32"
+                    },
+                    {
+                        "name": "core",
+                        "type": "symbol"
+                    }
+                ]
+            },
+            {
+                "name": "key_weight",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "key",
+                        "type": "public_key"
+                    },
+                    {
+                        "name": "weight",
+                        "type": "uint16"
+                    }
+                ]
+            },
+            {
+                "name": "linkauth",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "account",
+                        "type": "name"
+                    },
+                    {
+                        "name": "code",
+                        "type": "name"
+                    },
+                    {
+                        "name": "type",
+                        "type": "name"
+                    },
+                    {
+                        "name": "requirement",
+                        "type": "name"
+                    },
+                    {
+                        "name": "max_fee",
+                        "type": "uint64"
+                    }
+                ]
+            },
+            {
+                "name": "locked_token_holder_info",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "owner",
+                        "type": "name"
+                    },
+                    {
+                        "name": "total_grant_amount",
+                        "type": "uint64"
+                    },
+                    {
+                        "name": "unlocked_period_count",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "grant_type",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "inhibit_unlocking",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "remaining_locked_amount",
+                        "type": "uint64"
+                    },
+                    {
+                        "name": "timestamp",
+                        "type": "uint32"
+                    }
+                ]
+            },
+            {
+                "name": "newaccount",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "creator",
+                        "type": "name"
+                    },
+                    {
+                        "name": "name",
+                        "type": "name"
+                    },
+                    {
+                        "name": "owner",
+                        "type": "authority"
+                    },
+                    {
+                        "name": "active",
+                        "type": "authority"
+                    }
+                ]
+            },
+            {
+                "name": "onblock",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "header",
+                        "type": "block_header"
+                    }
+                ]
+            },
+            {
+                "name": "onerror",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "sender_id",
+                        "type": "uint128"
+                    },
+                    {
+                        "name": "sent_trx",
+                        "type": "bytes"
+                    }
+                ]
+            },
+            {
+                "name": "permission_level",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "actor",
+                        "type": "name"
+                    },
+                    {
+                        "name": "permission",
+                        "type": "name"
+                    }
+                ]
+            },
+            {
+                "name": "permission_level_weight",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "permission",
+                        "type": "permission_level"
+                    },
+                    {
+                        "name": "weight",
+                        "type": "uint16"
+                    }
+                ]
+            },
+            {
+                "name": "producer_info",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "uint64"
+                    },
+                    {
+                        "name": "owner",
+                        "type": "name"
+                    },
+                    {
+                        "name": "fio_address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "addresshash",
+                        "type": "uint128"
+                    },
+                    {
+                        "name": "total_votes",
+                        "type": "float64"
+                    },
+                    {
+                        "name": "producer_public_key",
+                        "type": "public_key"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "url",
+                        "type": "string"
+                    },
+                    {
+                        "name": "unpaid_blocks",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "last_claim_time",
+                        "type": "time_point"
+                    },
+                    {
+                        "name": "last_bpclaim",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "location",
+                        "type": "uint16"
+                    }
+                ]
+            },
+            {
+                "name": "producer_key",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "producer_name",
+                        "type": "name"
+                    },
+                    {
+                        "name": "block_signing_key",
+                        "type": "public_key"
+                    }
+                ]
+            },
+            {
+                "name": "producer_schedule",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "version",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "producers",
+                        "type": "producer_key[]"
+                    }
+                ]
+            },
+            {
+                "name": "regproducer",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "fio_address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "fio_pub_key",
+                        "type": "string"
+                    },
+                    {
+                        "name": "url",
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "type": "uint16"
+                    },
+                    {
+                        "name": "actor",
+                        "type": "name"
+                    },
+                    {
+                        "name": "max_fee",
+                        "type": "int64"
+                    }
+                ]
+            },
+            {
+                "name": "regproxy",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "fio_address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "actor",
+                        "type": "name"
+                    },
+                    {
+                        "name": "max_fee",
+                        "type": "int64"
+                    }
+                ]
+            },
+            {
+                "name": "remaction",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "action",
+                        "type": "name"
+                    },
+                    {
+                        "name": "actor",
+                        "type": "name"
+                    }
+                ]
+            },
+            {
+                "name": "resetclaim",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "producer",
+                        "type": "name"
+                    }
+                ]
+            },
+            {
+                "name": "rmvproducer",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "producer",
+                        "type": "name"
+                    }
+                ]
+            },
+            {
+                "name": "setabi",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "account",
+                        "type": "name"
+                    },
+                    {
+                        "name": "abi",
+                        "type": "bytes"
+                    }
+                ]
+            },
+            {
+                "name": "setautoproxy",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "proxy",
+                        "type": "name"
+                    },
+                    {
+                        "name": "owner",
+                        "type": "name"
+                    }
+                ]
+            },
+            {
+                "name": "setcode",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "account",
+                        "type": "name"
+                    },
+                    {
+                        "name": "vmtype",
+                        "type": "uint8"
+                    },
+                    {
+                        "name": "vmversion",
+                        "type": "uint8"
+                    },
+                    {
+                        "name": "code",
+                        "type": "bytes"
+                    }
+                ]
+            },
+            {
+                "name": "setparams",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "params",
+                        "type": "blockchain_parameters"
+                    }
+                ]
+            },
+            {
+                "name": "setpriv",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "account",
+                        "type": "name"
+                    },
+                    {
+                        "name": "is_priv",
+                        "type": "uint8"
+                    }
+                ]
+            },
+            {
+                "name": "top_prod_info",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "producer",
+                        "type": "name"
+                    }
+                ]
+            },
+            {
+                "name": "unlinkauth",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "account",
+                        "type": "name"
+                    },
+                    {
+                        "name": "code",
+                        "type": "name"
+                    },
+                    {
+                        "name": "type",
+                        "type": "name"
+                    }
+                ]
+            },
+            {
+                "name": "unlocktokens",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "actor",
+                        "type": "name"
+                    }
+                ]
+            },
+            {
+                "name": "unregprod",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "fio_address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "actor",
+                        "type": "name"
+                    },
+                    {
+                        "name": "max_fee",
+                        "type": "int64"
+                    }
+                ]
+            },
+            {
+                "name": "unregproxy",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "fio_address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "actor",
+                        "type": "name"
+                    },
+                    {
+                        "name": "max_fee",
+                        "type": "int64"
+                    }
+                ]
+            },
+            {
+                "name": "updateauth",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "account",
+                        "type": "name"
+                    },
+                    {
+                        "name": "permission",
+                        "type": "name"
+                    },
+                    {
+                        "name": "parent",
+                        "type": "name"
+                    },
+                    {
+                        "name": "auth",
+                        "type": "authority"
+                    },
+                    {
+                        "name": "max_fee",
+                        "type": "uint64"
+                    }
+                ]
+            },
+            {
+                "name": "updatepower",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "voter",
+                        "type": "name"
+                    },
+                    {
+                        "name": "updateonly",
+                        "type": "bool"
+                    }
+                ]
+            },
+            {
+                "name": "updlbpclaim",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "producer",
+                        "type": "name"
+                    }
+                ]
+            },
+            {
+                "name": "updlocked",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "owner",
+                        "type": "name"
+                    },
+                    {
+                        "name": "amountremaining",
+                        "type": "uint64"
+                    }
+                ]
+            },
+            {
+                "name": "updtrevision",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "revision",
+                        "type": "uint8"
+                    }
+                ]
+            },
+            {
+                "name": "user_resources",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "owner",
+                        "type": "name"
+                    },
+                    {
+                        "name": "net_weight",
+                        "type": "asset"
+                    },
+                    {
+                        "name": "cpu_weight",
+                        "type": "asset"
+                    },
+                    {
+                        "name": "ram_bytes",
+                        "type": "int64"
+                    }
+                ]
+            },
+            {
+                "name": "voteproducer",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "producers",
+                        "type": "string[]"
+                    },
+                    {
+                        "name": "fio_address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "actor",
+                        "type": "name"
+                    },
+                    {
+                        "name": "max_fee",
+                        "type": "int64"
+                    }
+                ]
+            },
+            {
+                "name": "voteproxy",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "proxy",
+                        "type": "string"
+                    },
+                    {
+                        "name": "fio_address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "actor",
+                        "type": "name"
+                    },
+                    {
+                        "name": "max_fee",
+                        "type": "int64"
+                    }
+                ]
+            },
+            {
+                "name": "voter_info",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "uint64"
+                    },
+                    {
+                        "name": "fioaddress",
+                        "type": "string"
+                    },
+                    {
+                        "name": "addresshash",
+                        "type": "uint128"
+                    },
+                    {
+                        "name": "owner",
+                        "type": "name"
+                    },
+                    {
+                        "name": "proxy",
+                        "type": "name"
+                    },
+                    {
+                        "name": "producers",
+                        "type": "name[]"
+                    },
+                    {
+                        "name": "last_vote_weight",
+                        "type": "float64"
+                    },
+                    {
+                        "name": "proxied_vote_weight",
+                        "type": "float64"
+                    },
+                    {
+                        "name": "is_proxy",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "is_auto_proxy",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "reserved2",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "reserved3",
+                        "type": "asset"
+                    }
+                ]
+            },
+            {
+                "name": "wait_weight",
+                "base": "",
+                "fields": [
+                    {
+                        "name": "wait_sec",
+                        "type": "uint32"
+                    },
+                    {
+                        "name": "weight",
+                        "type": "uint16"
+                    }
+                ]
+            }
+        ],
+        "actions": [
+            {
+                "name": "addaction",
+                "type": "addaction",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "addlocked",
+                "type": "addlocked",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "burnaction",
+                "type": "burnaction",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "canceldelay",
+                "type": "canceldelay",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "crautoproxy",
+                "type": "crautoproxy",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "deleteauth",
+                "type": "deleteauth",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "incram",
+                "type": "incram",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "inhibitunlck",
+                "type": "inhibitunlck",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "init",
+                "type": "init",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "linkauth",
+                "type": "linkauth",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "newaccount",
+                "type": "newaccount",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "onblock",
+                "type": "onblock",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "onerror",
+                "type": "onerror",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "regproducer",
+                "type": "regproducer",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "regproxy",
+                "type": "regproxy",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "remaction",
+                "type": "remaction",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "resetclaim",
+                "type": "resetclaim",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "rmvproducer",
+                "type": "rmvproducer",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "setabi",
+                "type": "setabi",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "setautoproxy",
+                "type": "setautoproxy",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "setcode",
+                "type": "setcode",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "setparams",
+                "type": "setparams",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "setpriv",
+                "type": "setpriv",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "unlinkauth",
+                "type": "unlinkauth",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "unlocktokens",
+                "type": "unlocktokens",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "unregprod",
+                "type": "unregprod",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "unregproxy",
+                "type": "unregproxy",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "updateauth",
+                "type": "updateauth",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "updatepower",
+                "type": "updatepower",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "updlbpclaim",
+                "type": "updlbpclaim",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "updlocked",
+                "type": "updlocked",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "updtrevision",
+                "type": "updtrevision",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "voteproducer",
+                "type": "voteproducer",
+                "ricardian_contract": ""
+            },
+            {
+                "name": "voteproxy",
+                "type": "voteproxy",
+                "ricardian_contract": ""
+            }
+        ],
+        "tables": [
+            {
+                "name": "abihash",
+                "index_type": "i64",
+                "key_names": [],
+                "key_types": [],
+                "type": "abi_hash"
+            },
+            {
+                "name": "global",
+                "index_type": "i64",
+                "key_names": [],
+                "key_types": [],
+                "type": "eosio_global_state"
+            },
+            {
+                "name": "global2",
+                "index_type": "i64",
+                "key_names": [],
+                "key_types": [],
+                "type": "eosio_global_state2"
+            },
+            {
+                "name": "global3",
+                "index_type": "i64",
+                "key_names": [],
+                "key_types": [],
+                "type": "eosio_global_state3"
+            },
+            {
+                "name": "lockedtokens",
+                "index_type": "i64",
+                "key_names": [],
+                "key_types": [],
+                "type": "locked_token_holder_info"
+            },
+            {
+                "name": "producers",
+                "index_type": "i64",
+                "key_names": [],
+                "key_types": [],
+                "type": "producer_info"
+            },
+            {
+                "name": "topprods",
+                "index_type": "i64",
+                "key_names": [],
+                "key_types": [],
+                "type": "top_prod_info"
+            },
+            {
+                "name": "userres",
+                "index_type": "i64",
+                "key_names": [],
+                "key_types": [],
+                "type": "user_resources"
+            },
+            {
+                "name": "voters",
+                "index_type": "i64",
+                "key_names": [],
+                "key_types": [],
+                "type": "voter_info"
+            }
+        ],
+        "ricardian_clauses": [],
+        "error_messages": [],
+        "abi_extensions": [],
+        "variants": []
+    }
+}

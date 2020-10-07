@@ -6,7 +6,9 @@ import {MockProvider} from './utils/mock-provider'
 import {Action} from '../src/chain/action'
 import {APIClient, APIError} from '../src/api/client'
 import {Asset} from '../src/chain/asset'
+import {Checksum256} from '../src/chain/checksum'
 import {Name} from '../src/chain/name'
+import {PublicKey} from '../src/chain/public-key'
 import {PrivateKey} from '../src/chain/private-key'
 import {SignedTransaction, Transaction, TransactionReceipt} from '../src/chain/transaction'
 import {Struct} from '../src/chain/struct'
@@ -25,6 +27,43 @@ const beos = new APIClient({
 
 suite('api v1', function () {
     this.slow(200)
+
+    test('atomic asset emoji', async function () {
+        const action = {
+            account: 'atomicassets',
+            name: 'createtempl',
+            authorization: [{ actor: 'teamgreymass', permission: 'active' }],
+            data: {
+                authorized_creator: "teamgreymass",
+                collection_name: "greymasstest",
+                schema_name: "greymasstest",
+                transferable: true,
+                burnable: true,
+                max_supply: "0",
+                immutable_data: [
+                    {
+                        "key": "name",
+                        "value": [
+                            "string",
+                            '😂'
+                        ]
+                    }
+                ]
+            }
+        }
+        const wax = new APIClient({
+            provider: new MockProvider(joinPath(__dirname, 'data'), 'https://waxtestnet.greymass.com'),
+        })
+        const { abi } = await wax.v1.chain.get_abi('atomicassets');
+        const info = await wax.v1.chain.get_info();
+        const header = info.getTransactionHeader();
+        const tx = Transaction.from({
+          ...header,
+          actions: [action]
+        }, abi);
+        const [first, second] = tx.actions[0].decodeData(abi).immutable_data[0].value
+        assert.equal(second, '😂')
+    })
 
     test('chain get_account', async function () {
         const account = await jungle.v1.chain.get_account('teamgreymass')

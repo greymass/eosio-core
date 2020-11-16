@@ -8,6 +8,7 @@ import {APIClient, APIError} from '../src/api/client'
 import {Asset} from '../src/chain/asset'
 import {Name} from '../src/chain/name'
 import {PrivateKey} from '../src/chain/private-key'
+import {PermissionLevel} from '../src/chain/permission-level'
 import {SignedTransaction, Transaction, TransactionReceipt} from '../src/chain/transaction'
 import {Struct} from '../src/chain/struct'
 import {Float64} from '../src/chain/float'
@@ -26,6 +27,24 @@ const beos = new APIClient({
 
 suite('api v1', function () {
     this.slow(200)
+
+    test('chain get_abi', async function() {
+        const abi = await jungle.v1.chain.get_abi('eosio.token')
+        const action = Action.from({
+            account: 'eosio.token',
+            name: 'transfer',
+            authorization: [PermissionLevel.from({
+                actor: 'teamgreymass',
+                permission: 'active',
+            })],
+            data: {
+                from: 'teamgreymass',
+                to: 'fuel.gm',
+                quantity: '0.0001 EOS',
+                memo: ''
+            },
+        }, abi)
+    })
 
     test('chain get_account', async function () {
         const account = await jungle.v1.chain.get_account('teamgreymass')

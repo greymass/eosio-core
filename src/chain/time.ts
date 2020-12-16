@@ -38,7 +38,11 @@ class TimePointBase implements ABISerializableObject {
     }
 
     static fromString<T extends TimePointConstructor>(this: T, string: string): InstanceType<T> {
-        const value = Date.parse(string + 'Z')
+        let interpreted = string
+        if (!interpreted.includes('+')) {
+            interpreted += 'Z'
+        }
+        const value = Date.parse(interpreted)
         if (!Number.isFinite(value)) {
             throw new Error('Invalid date string')
         }

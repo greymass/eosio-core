@@ -160,7 +160,7 @@ suite('chain', function () {
     test('any transaction', function () {
         const tx: AnyTransaction = {
             delay_sec: 0,
-            expiration: '2020-07-01T17:32:13',
+            expiration: '2020-12-16T23:04:22.459422+00:00',
             max_cpu_usage_ms: 0,
             max_net_usage_words: 0,
             ref_block_num: 55253,

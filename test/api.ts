@@ -31,6 +31,10 @@ const fio = new APIClient({
     provider: new MockProvider(joinPath(__dirname, 'data'), 'https://fio.greymass.com'),
 })
 
+const telos = new APIClient({
+    provider: new MockProvider(joinPath(__dirname, 'data'), 'https://telos.greymass.com'),
+})
+
 const beos = new APIClient({
     provider: new MockProvider(joinPath(__dirname, 'data'), 'https://api.beos.world'),
 })
@@ -51,6 +55,11 @@ suite('api v1', function () {
     test('chain get_account (fio)', async function () {
         const account = await fio.v1.chain.get_account('lhp1ytjibtea')
         assert.equal(account.account_name, 'lhp1ytjibtea')
+    })
+
+    test('chain get_account (telos)', async function () {
+        const account = await telos.v1.chain.get_account('foflexitytls')
+        assert.equal(account.account_name, 'foflexitytls')
     })
 
     test('chain get_account / getPermission with string', async function () {

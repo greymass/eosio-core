@@ -81,8 +81,10 @@ export class AccountVoterInfo extends Struct {
 
 @Struct.type('account_rex_info_maturities')
 export class AccountRexInfoMaturities extends Struct {
-    @Struct.field('time_point') key!: TimePoint
-    @Struct.field('int64') value!: Int64
+    @Struct.field('time_point', {optional: true}) key?: TimePoint
+    @Struct.field('time_point', {optional: true}) first?: TimePoint
+    @Struct.field('int64', {optional: true}) value?: Int64
+    @Struct.field('int64', {optional: true}) second?: Int64
 }
 
 @Struct.type('account_rex_info')

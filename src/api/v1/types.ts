@@ -81,9 +81,11 @@ export class AccountVoterInfo extends Struct {
 
 @Struct.type('account_rex_info_maturities')
 export class AccountRexInfoMaturities extends Struct {
+    /** Expected results from after EOSIO.Contracts v1.9.0 */
     @Struct.field('time_point', {optional: true}) key?: TimePoint
-    @Struct.field('time_point', {optional: true}) first?: TimePoint
     @Struct.field('int64', {optional: true}) value?: Int64
+    /** Expected results from before EOSIO.Contracts v1.9.0 */
+    @Struct.field('time_point', {optional: true}) first?: TimePoint
     @Struct.field('int64', {optional: true}) second?: Int64
 }
 
